@@ -74,10 +74,10 @@ async def add_score(student_id: int, subject: str, score: int):
 
 
 @app.get("/score/{score_id}")
-async def get_student_scores(score_id: int):
+async def get_score(score_id: int):
     score = session.query(Score).filter(Score.id == score_id).all()
     if not score:
-        raise HTTPException(status_code=404, detail="Scores not found for student")
+        raise HTTPException(status_code=404, detail="Score not found")
     return score
 
 """
